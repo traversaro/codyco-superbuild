@@ -24,9 +24,6 @@ matrix:
       env : OSX_GENERATOR="Xcode"
     
   
-  allow_failures:
-  - os: osx 
-  
 before_script:
   - sh .ci/travis-deps.sh
   
