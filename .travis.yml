@@ -16,7 +16,6 @@ matrix:
     - compiler: clang
       os : osx
       env : OSX_GENERATOR="make"
-  allow_failures:
     - compiler: gcc
       os : osx
       env : OSX_GENERATOR="Xcode"
