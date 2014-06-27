@@ -1,7 +1,3 @@
-os:
-  - linux
-  - osx
-
 language: cpp
 
 compiler:
@@ -9,6 +5,26 @@ compiler:
   - clang
   
 matrix:
+  include:
+    - compiler: gcc
+      os : linux
+    - compiler: clang
+      os : linux
+    - compiler: gcc
+      os : osx
+      env : OSX_GENERATOR="make"
+    - compiler: clang
+      os : osx
+      env : OSX_GENERATOR="make"
+  allow_failures:
+    - compiler: gcc
+      os : osx
+      env : OSX_GENERATOR="Xcode"
+    - compiler: clang
+      os : osx
+      env : OSX_GENERATOR="Xcode"
+    
+  
   allow_failures:
   - os: osx 
   
