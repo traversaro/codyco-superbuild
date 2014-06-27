@@ -11,11 +11,13 @@ if [ "$TRAVIS_OS_NAME" = linux -o -z "$TRAVIS_OS_NAME" ]; then
 elif [ "$TRAVIS_OS_NAME" = osx ]; then
     mkdir build
     cd build
-    cmake ..
+    cmake -DNON_INTERACTIVE_BUILD:BOOL=TRUE ..
     make 
     cd ..
-    mkdir build_xcode
-    cd build_xcode
-    cmake .. -GXcode
-    xcodebuild
+    if [ "OSX_GENERATOR" = Xcode ]; then 
+        mkdir build_xcode 
+        cd build_xcode
+        cmake -DNON_INTERACTIVE_BUILD:BOOL=TRUE .. -GXcode
+        xcodebuild
+    fi
 fi
