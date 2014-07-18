@@ -25,6 +25,7 @@ option(CODYCO_ICUBWBI_USE_EXTERNAL_TORQUE_CONTROL "Set if iCub WBI implementatio
 option(CODYCO_BUILD_ICUB_MODEL_GENERATOR "Enable compilation of the icub-model-generator" FALSE)
 
 # Bootstrap YCM
+set(YCM_TAG xcode_fixes) 
 include(YCMBootstrap)
 
 include(FindOrBuildPackage)
